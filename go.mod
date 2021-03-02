@@ -1,4 +1,4 @@
-module github.com/freshman-tech/news-demo-starter-files
+module github.com/sam-hyde/go-news-web-app
 
 go 1.15
 
