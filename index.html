@@ -9,7 +9,57 @@
   <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
+  {{ if not .Results }}
+  <style>
+    .outer {
+      display: table;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .middle {
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+    .inner {
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+      background-color: var(--header-bg-colour);
+      padding: 50px;
+    }
+
+    .search-header-title {
+      text-align: center;
+      color: var(--input-bg-colour);
+    }
+  </style>
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <h1 class="search-header-title">Search</h1>
+        <br>
+        <form action="/search" method="GET">
+          <input
+            autofocus
+            class="search-input"
+            value="{{ .Query }}"
+            placeholder="Enter a news topic..."
+            type="search"
+            name="q"
+            style="width: 75%; margin-left: 12.5%;"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+  {{ end }}
   <main>
+    {{ if .Results }}
     <header>
       <form action="/search" method="GET">
         <input
@@ -22,6 +72,7 @@
         />
       </form>
     </header>
+    {{ end }}
     <section class="container">
       <div class="result-count">
         {{ if .Results }}
