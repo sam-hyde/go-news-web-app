@@ -31,6 +31,7 @@
       width: 40%;
       background-color: var(--header-bg-colour);
       padding: 50px;
+      border-radius: 5px;
     }
 
     .search-header-title {
@@ -41,14 +42,12 @@
   <div class="outer">
     <div class="middle">
       <div class="inner">
-        <h1 class="search-header-title">Search</h1>
-        <br>
         <form action="/search" method="GET">
           <input
             autofocus
             class="search-input"
             value="{{ .Query }}"
-            placeholder="Enter a news topic..."
+            placeholder="Search for a news topic"
             type="search"
             name="q"
             style="width: 75%; margin-left: 12.5%;"
@@ -66,7 +65,7 @@
           autofocus
           class="search-input"
           value="{{ .Query }}"
-          placeholder="Enter a news topic..."
+          placeholder="Search for a news topic"
           type="search"
           name="q"
         />
